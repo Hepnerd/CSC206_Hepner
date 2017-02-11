@@ -9,6 +9,11 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+.sideBar {
+  float: right;
+  margin-top: 100px;
+  padding-left: 20px;
+}
 body {
   margin: 0;
 }
@@ -1618,9 +1623,9 @@ pre code {
   margin-left: auto;
 }
 .row {
-  margin-right: -15px;
-  margin-left: -15px;
-  position: relative;
+//margin-right: -15px;
+//margin-left: -15px;
+//position: relative;
   padding-top: 200px;
 
 }
@@ -1818,7 +1823,7 @@ pre code {
     width: 33.33333333%;
   }
   .col-sm-3 {
-    width: 25%;
+    width: 50%;
   }
   .col-sm-2 {
     width: 16.66666667%;
@@ -6849,7 +6854,7 @@ button.close {
   }
 }
 .blog-footer {
-  padding: 40px 0;
+  //padding: 40px 0;
   color: #999;
   text-align: center;
   background-color: #f9f9f9;
