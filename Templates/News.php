@@ -21,12 +21,16 @@ class news
     {
         $title = $data['title'];
         $content = $data['content'];
-        // $author = $data['firstname'] . ' ' . $data['lastname'];
+        $startDate = $data['startDate'];
+        $endDate = $data['endDate'];
+            //        $author = $data['firstname'] . ' ' . $data['lastname'];
+
         echo <<<story
         <div class="top10">
             <h2>$title</h2>
-            <h5>Display from  sometime until some other time</h5>
             <p>$content</p>
+            <h5>$startDate</h5>
+            <h5>$endDate</h5>
         </div>        
 story;
     }

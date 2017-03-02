@@ -1587,6 +1587,9 @@ pre code {
     margin-right: auto;
     margin-left: auto;
 }
+@media (max-width: 768px) {
+    .sideBar{display:none;}
+}
 @media (min-width: 768px) {
     .container {
         width: 750px;
@@ -6945,10 +6948,12 @@ h6, .h6 {
 
 /* Modal Content/Box */
 .modal-content {
+    float: right;
     background-color: #fefefe;
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    height: 150px;
+    width: 250px; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */

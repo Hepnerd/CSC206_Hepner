@@ -7,7 +7,7 @@ include("../templates/News.php");
 // Connect to the database
 $db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Get the stories for column 1 from the database
-$sql = 'select * from posts';
+$sql = 'select * from posts order by startDate DESC';
 $posts = $db->query($sql);
 // Run a simple query that will be rendered in column 2 below
 $sql = 'select id, name, description from pages';

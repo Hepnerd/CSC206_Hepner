@@ -103,9 +103,9 @@ function showForm($data = null)
     
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-3 control-label" for="startDate">Effective Date</label>
+                <label class="col-md-3 control-label" for="startDate">Start Date</label>
                 <div class="col-md-8">
-                    <input id="startDate" name="startDate" type="text" placeholder="effective date" value="$startDate" class="form-control input-md" required="">
+                    <input id="startDate" name="startDate" type="text" placeholder="start date" value="$startDate" class="form-control input-md" required="">
                 </div>
             </div>
     
