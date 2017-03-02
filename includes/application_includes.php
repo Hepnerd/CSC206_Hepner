@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nbhep
- * Date: 2/11/2017
- * Time: 3:50 PM
- */
+// Include the basic configuration elements
+require_once($_SERVER['DOCUMENT_ROOT'].'/../includes/config.php');
+// Include the database connection and query class
+require_once(FS_INCLUDES . 'Database.php');

@@ -34,7 +34,7 @@ class layout
             <nav class="blog-nav">
                 <img src="Assets/images/Logo.png" style="height: 42px">
                 <a class="blog-nav-item active" href="index.php">Home</a>
-                <a class="blog-nav-item" href="#">About</a>
+                <a class="blog-nav-item" href="createpost.php">Create Post</a>
             </nav>
         </div>
     </div>
@@ -43,14 +43,15 @@ class layout
 
         <div class="blog-header">
             <img class="headerImage" src="Assets/images/sundown.jpg" />
-            <h1 class="blog-title">World Travel</h1>
+            <h1 class="blog-title">World Travels</h1>
             <p class="lead blog-description">Follow Nathanael as he posts his Facebook Pictures.</p>
         </div>
+    </div>
 </header>
 pageTop;
     }
-    
-    
+
+
     public static function pageBottom()
     {
         echo <<<pageBottom
@@ -63,12 +64,14 @@ pageTop;
                 <a href="#">Back to top</a>
             </p>
         </footer>
-
+        </body>
+        </html>
 pageBottom;
     }
+
     public static function PageSide()
     {
-            echo <<<PageSide
+        echo <<<PageSide
             
 <div class="sideBar">
 
@@ -76,7 +79,7 @@ pageBottom;
             <div class="sidebar-module sidebar-module-inset">
                 <h4>About</h4>
                 <p>Nathanael is a one of a kind dude. He dabbles in the #000 arts.</p>
-</div>
+            </div>
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
@@ -104,12 +107,9 @@ pageBottom;
             </div>
         </div>
 </div>
-                </body>
-        </html>
+                
 PageSide;
     }
-    
+
 
 }
-
-?>
