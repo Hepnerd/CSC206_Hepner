@@ -6954,6 +6954,7 @@ h6, .h6 {
     border: 1px solid #888;
     height: 150px;
     width: 250px; /* Could be more or less, depending on screen size */
+    margin-left: 10px;
 }
 
 /* The Close Button */
@@ -6993,4 +6994,11 @@ h6, .h6 {
 #loginbutton
 {
     float: right;
+}
+
+.logincontainer {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
