@@ -6930,6 +6930,48 @@ h6, .h6 {
 .blog-footer p:last-child {
     margin-bottom: 0;
 }
+/* Full-width input fields */
+.logintextandpass {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.submitbutton {
+    background-color: #428bca;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+}
+
+/* Center the image and position the close button */
+
+.logincontainer {
+    padding: 16px;
+}
+
+span.psw {
+/*    float: right;
+    padding-top: 16px; */
+}
 
 /* The Modal (background) */
 .modal {
@@ -6940,26 +6982,25 @@ h6, .h6 {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: hidden; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
+    padding-top: 20px;
+    padding-right: 20px;
 }
 
 /* Modal Content/Box */
 .modal-content {
     float: right;
     background-color: #fefefe;
-    margin: 5px auto; /* 15% from the top and centered */
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    height: 150px;
-    width: 250px; /* Could be more or less, depending on screen size */
-    margin-left: 10px;
+    width: 30%; /* Could be more or less, depending on screen size */
+
 }
 
-/* The Close Button */
+/* The Close Button (x) */
 .close {
-    /* Position it in the top right corner outside of the modal */
     position: absolute;
     right: 25px;
     top: 0;
@@ -6968,7 +7009,6 @@ h6, .h6 {
     font-weight: bold;
 }
 
-/* Close button on hover */
 .close:hover,
 .close:focus {
     color: red;

@@ -29,8 +29,8 @@ class news
         <div class="top10">
             <h2>$title</h2>
             <p>$content</p>
-            <h5>$startDate</h5>
-            <h5>$endDate</h5>
+            <h5>Start Date: $startDate</h5>
+            <h5>End Date: $endDate</h5>
         </div>        
 story;
     }

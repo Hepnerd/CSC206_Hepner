@@ -49,18 +49,19 @@ class="close" title="Close Modal">&times;</span>
 
     <div class="logincontainer">
       <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input class="logintextandpass" type="text" placeholder="Enter Username" name="uname" required>
 
       <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input class="logintextandpass" type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
-      <input type="checkbox" checked="checked"> Remember me
+      <button class=submitbutton href="#" type="submit">Login</button>
+      <input type="checkbox" checked="checked"> Remember me</input> <br>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+
     </div>
 
     <div class="logincontainer" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>
@@ -70,7 +71,7 @@ class="close" title="Close Modal">&times;</span>
         <div class="blog-header">
             <img class="headerImage" src="Assets/images/sundown.jpg" />
             <h1 class="blog-title">World Travels</h1>
-            <p class="lead blog-description">Follow Nathanael as he posts his Facebook Pictures.</p>
+            <p class="lead blog-description">Follow Nathanael as he posts his Facebook pictures.</p>
         </div>
     </div>
 </header>

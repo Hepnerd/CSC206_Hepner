@@ -31,7 +31,9 @@ Layout::pageTop('CSC206 Project');
                     $title = $_POST['title'];
                     $content = $_POST['content'];
                     $startDate  = $_POST['startDate'];
+                    $startDate = date('y-d-m h:i:s',strtotime($startDate));
                     $endDate  = $_POST['endDate'];
+                    $endDate = date('y-d-m h:i:s',strtotime($endDate));
                     // This SQL uses double quotes for the query string.  If a field is not a number (it's a string or a date) it needs
                     // to be enclosed in single quotes.  Note that right after values is a ( and a single quote.  Taht single quote comes right
                     // before the value of $title.  Note also that at the end of $title is a ', ' inside of double quotes.  What this will all render
