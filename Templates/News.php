@@ -23,6 +23,7 @@ class news
         $content = $data['content'];
         $startDate = $data['startDate'];
         $endDate = $data['endDate'];
+        $id = $data['id'];
             //        $author = $data['firstname'] . ' ' . $data['lastname'];
 
         echo <<<story
@@ -31,6 +32,10 @@ class news
             <p>$content</p>
             <h5>Start Date: $startDate</h5>
             <h5>End Date: $endDate</h5>
+            <h4><a href="updatePost.php?id=$id">Edit</a> 
+            <a href="deletePost.php?id=$id">Delete</a>
+            <a href="viewPost.php?id=$id">View</a></h4>
+            
         </div>        
 story;
     }

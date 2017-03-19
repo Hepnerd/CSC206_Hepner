@@ -1,13 +1,13 @@
 <?php
 // Load all application files and configurations
-require($_SERVER[ 'DOCUMENT_ROOT' ] . '/../includes/application_includes.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/../includes/application_includes.php');
 // Include the HTML layout class
 include('../Templates/layout.php');
 include('../Templates/News.php');
 // Connect to the database
 $db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Initialize variables
-$requestType = $_SERVER[ 'REQUEST_METHOD' ];
+$requestType = $_SERVER['REQUEST_METHOD'];
 // Generate the HTML for the top of the page
 Layout::pageTop('CSC206 Project');
 // Page content goes here
@@ -18,29 +18,29 @@ Layout::pageTop('CSC206 Project');
             <section class="content">
 
                 <?php
-                if ( $requestType == 'GET' ) {
+                if ($requestType == 'GET') {
                     // Display the form
                     showForm();
-                } elseif ( $requestType == 'POST' ) {
-                    // Process data that was submitted
-                    echo '<h2>This is the data that was entered</h2>';
-                    echo '<pre>';
-                    print_r($_POST);
-                    echo '</pre>';
-                    // pull the fields from the POST array.
-                    $title = $_POST['title'];
-                    $content = $_POST['content'];
-                    $startDate  = $_POST['startDate'];
-                    $startDate = date('y-d-m h:i:s',strtotime($startDate));
-                    $endDate  = $_POST['endDate'];
-                    $endDate = date('y-d-m h:i:s',strtotime($endDate));
-                    // This SQL uses double quotes for the query string.  If a field is not a number (it's a string or a date) it needs
-                    // to be enclosed in single quotes.  Note that right after values is a ( and a single quote.  Taht single quote comes right
-                    // before the value of $title.  Note also that at the end of $title is a ', ' inside of double quotes.  What this will all render
-                    // That will generate this piece of SQL:   values ('title text here', 'content text here', '2017-02-01 00:00:00'  and so
-                    // on until the end of the sql command.
-                    $sql = "insert into posts (title, content, startDate, endDate) values ('" . $title . "', '" . $content . "', '" . $startDate . "', '" . $endDate . "');";
-                    $db->query($sql);
+                } elseif ($requestType == 'POST') {
+                    if (validateInput($_POST)) {
+                        // Data is valid so save it to the database
+                        // pull the fields from the POST array.
+                        $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+                        $content = htmlspecialchars($_POST['content'], ENT_QUOTES);
+                        $startDate = date('Y:m:d H:i:s', strtotime($_POST['startDate']));
+                        $endDate = date('Y:m:d H:i:s', strtotime($_POST['endDate']));
+                        // This SQL uses double quotes for the query string.  If a field is not a number (it's a string or a date) it needs
+                        // to be enclosed in single quotes.  Note that right after values is a ( and a single quote.  Taht single quote comes right
+                        // before the value of $title.  Note also that at the end of $title is a ', ' inside of double quotes.  What this will all render
+                        // That will generate this piece of SQL:   values ('title text here', 'content text here', '2017-02-01 00:00:00'  and so
+                        // on until the end of the sql command.
+                        $sql = "insert into posts (title, content, startDate, endDate, userId) values ('" . $title . "', '" . $content . "', '" . $startDate . "', '" . $endDate . "', 1);";
+                        $db->query($sql);
+                    } else {
+                        // This is an error so show the form again
+                        showForm($_POST);
+                    }
+                    header('Location: index.php');
                 }
                 ?>
 
@@ -48,13 +48,7 @@ Layout::pageTop('CSC206 Project');
             </section>
         </div>
 
-        <div class="col-md-4">
-            <section class="content">
-                <h1>Posts List</h1>
-                <p>Current and active posts.</p>
 
-            </section>
-        </div>
     </div>
 
 <?php
@@ -64,12 +58,36 @@ Layout::pageBottom();
  * Functions that support the createPost page
  */
 $fields = [
-    'title'     => ['required', 'string'],
-    'content'   => ['required', 'string'],
+    'title' => ['required', 'string'],
+    'content' => ['required', 'string'],
     'startDate' => ['required', 'date'],
-    'endDate'   => ['required', 'date'],
-    'image'     => ['date']
+    'endDate' => ['required', 'date'],
+    'image' => ['optional', 'string']
 ];
+function validateInput($formData)
+{
+    // use the global $fields list
+    global $fields;
+    $message = '';
+    // Assume everything will be valid
+    $validData = true;
+    // Loop through the whitelist to ensure required data is provided and the data
+    // is of the correct type
+//    foreach ($fields as $name => $field){
+//        $isRequired = ($field[0] == 'required') ? true : false;
+//
+//        $inArray = array_key_exists($name, $formData);
+//
+//
+//
+//        // Check for proper type of data
+//        // if ()
+//
+//
+//    }
+    return true;
+}
+
 /**
  * Show the form
  */
@@ -105,9 +123,9 @@ function showForm($data = null)
     
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-3 control-label" for="startDate">Start Date</label>
+                <label class="col-md-3 control-label" for="startDate">Effective Date</label>
                 <div class="col-md-8">
-                    <input id="startDate" name="startDate" type="text" placeholder="start date" value="$startDate" class="form-control input-md" required="">
+                    <input id="startDate" name="startDate" type="text" placeholder="effective date" value="$startDate" class="form-control input-md" required="">
                 </div>
             </div>
     
@@ -119,13 +137,14 @@ function showForm($data = null)
                 </div>
             </div>
     
-            <!-- File Button -->
+            <!-- File Button
             <div class="form-group">
                 <label class="col-md-3 control-label" for="image">Image Upload</label>
                 <div class="col-md-8">
                     <input id="image" name="image" class="input-file" value="$image" type="file">
                 </div>
             </div>
+            -->
     
             <!-- Button (Double) -->
             <div class="form-group">

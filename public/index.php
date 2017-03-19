@@ -46,6 +46,7 @@ Layout::pageTop("layout.php");
             </nav>
         </div>
         <div>
+
             <?php Layout::PageSide() ?>
         </div>
     </div>

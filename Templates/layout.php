@@ -1,5 +1,4 @@
 <?php
-
 class layout
 {
     public static function pageTop($title)
@@ -35,6 +34,7 @@ class layout
                 <a href="index.php"><img src="Assets/images/Logo.png" style="height: 42px"></a>
                 <a class="blog-nav-item" href="index.php">Home</a>
                 <a class="blog-nav-item" href="createpost.php">Create Post</a>
+                <a class="blog-nav-item" href="getPosts.php">View Posts</a>
                 <a class="blog-nav-item" id="loginbutton" onclick="document.getElementById('id01').style.display='block'">Login</a>
             </nav>
         </div>
