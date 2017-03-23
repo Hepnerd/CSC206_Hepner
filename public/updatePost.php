@@ -101,6 +101,7 @@ postform;
                     $id = $_POST['id'];
                     $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
                     $content = htmlspecialchars($_POST['content'], ENT_QUOTES);
+                    //add in startdate and enddate
 
                     //echo '<pre>' . print_r($_POST) . '</pre>';
 

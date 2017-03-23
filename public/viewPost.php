@@ -7,7 +7,7 @@ include('../Templates/News.php');
 // Connect to the database
 $db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Initialize variables
-$requestType = $_SERVER[ 'REQUEST_METHOD' ];
+$requestType = $_SERVER['REQUEST_METHOD'];
 // Generate the HTML for the top of the page
 Layout::pageTop('CSC206 Project');
 // Page content goes here

@@ -137,14 +137,14 @@ function showForm($data = null)
                 </div>
             </div>
     
-            <!-- File Button
+            <!-- File Button --!>
             <div class="form-group">
                 <label class="col-md-3 control-label" for="image">Image Upload</label>
                 <div class="col-md-8">
                     <input id="image" name="image" class="input-file" value="$image" type="file">
                 </div>
             </div>
-            -->
+            
     
             <!-- Button (Double) -->
             <div class="form-group">
