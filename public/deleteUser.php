@@ -8,9 +8,9 @@ include('../Templates/News.php');
 $db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Initialize variables
 $requestType = $_SERVER['REQUEST_METHOD'];
-$id = $_GET['id'];
+$email = $_GET['email'];
 
-$sql = "delete from posts where id=" . $_GET['id'];
+$sql = "delete from users where email=" . $_GET['email'];
 $result = $db->query($sql);
 
 // Generate the page footer

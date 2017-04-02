@@ -3,3 +3,8 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/../includes/config.php');
 // Include the database connection and query class
 require_once(FS_INCLUDES . 'Database.php');
+// Include the HTML layout class
+// Connect to the database
+$db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+// Initialize variables
+$requestType = $_SERVER[ 'REQUEST_METHOD' ];

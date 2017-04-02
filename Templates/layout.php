@@ -1,4 +1,5 @@
 <?php
+
 class layout
 {
     public static function pageTop($title)
@@ -36,6 +37,7 @@ class layout
                 <a class="blog-nav-item" href="createpost.php">Create Post</a>
                 <a class="blog-nav-item" href="getPosts.php">View Posts</a>
                 <a class="blog-nav-item" id="loginbutton" onclick="document.getElementById('id01').style.display='block'">Login</a>
+                <a class="blog-nav-item" id="loginbutton" href="createUser.php">Register</a>
             </nav>
         </div>
     </div>
@@ -45,14 +47,14 @@ class layout
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" method="post" action="login.php">
 
     <div class="logincontainer">
       <label><b>Username</b></label>
-      <input class="logintextandpass" type="text" placeholder="Enter Username" name="uname" required>
+      <input class="logintextandpass" type="text" placeholder="Enter Username" name="email" required>
 
       <label><b>Password</b></label>
-      <input class="logintextandpass" type="password" placeholder="Enter Password" name="psw" required>
+      <input class="logintextandpass" type="password" placeholder="Enter Password" name="password" required>
 
       <button class=submitbutton href="#" type="submit">Login</button>
       <input type="checkbox" checked="checked"> Remember me</input> <br>
