@@ -5,7 +5,6 @@ require($_SERVER['DOCUMENT_ROOT'] . '/../includes/application_includes.php');
 include('../Templates/layout.php');
 include('../Templates/News.php');
 // Connect to the database
-$db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Initialize variables
 $requestType = $_SERVER['REQUEST_METHOD'];
 // Generate the HTML for the top of the page
@@ -26,13 +25,18 @@ Layout::pageTop('CSC206 Project');
                         // Data is valid so save it to the database
                         // pull the fields from the POST array.
                         $email = htmlspecialchars($_POST['email'], ENT_QUOTES);
-                        $password = htmlspecialchars($_POST['password'], ENT_QUOTES);
+                        $password = password_hash(htmlspecialchars($_POST['password'], ENT_QUOTES), PASSWORD_DEFAULT);
+                        $firstName = htmlspecialchars($_POST['firstName'], ENT_QUOTES);
+                        $lastName = htmlspecialchars($_POST['lastName'], ENT_QUOTES);
+
                         // This SQL uses double quotes for the query string.  If a field is not a number (it's a string or a date) it needs
                         // to be enclosed in single quotes.  Note that right after values is a ( and a single quote.  Taht single quote comes right
                         // before the value of $title.  Note also that at the end of $title is a ', ' inside of double quotes.  What this will all render
                         // That will generate this piece of SQL:   values ('title text here', 'content text here', '2017-02-01 00:00:00'  and so
                         // on until the end of the sql command.
-                        $sql = "insert into users (email, password) values ('" . $email . "', '" . $password . "');";
+                        $sql = "insert into users (email, password, firstName, lastName) values ('" . $email . "', '" . $password . "', '". $firstName . "', '" . $lastName . "');";
+
+                        //echo $sql; die();
                         $db->query($sql);
                     } else {
                         // This is an error so show the form again
@@ -58,6 +62,8 @@ Layout::pageBottom();
 $fields = [
     'email' => ['required', 'email'],
     'password' => ['required', 'password'],
+    'firstName' => ['required', 'firstName'],
+    'lastName' => ['required', 'lastName'],
 ];
 function validateInput($formData)
 {
@@ -90,6 +96,8 @@ function showForm($data = null)
 {
     $email = $data['email'];
     $password = $data['password'];
+    $firstName = $data['firstName'];
+    $lastName = $data['lastName'];
     echo <<<postform
     <form id="createPostForm" action='createUser.php' method="POST" class="form-horizontal">
         <fieldset>
@@ -109,9 +117,24 @@ function showForm($data = null)
             <div class="form-group">
                 <label class="col-md-3 control-label" for="password">Password</label>
                 <div class="col-md-8">
-                    <textarea class="form-control" id="password" name="password">$password</textarea>
+                    <input class="form-control" type="password" id="password" name="password">$password</input>
                 </div>
             </div>
+            
+                        <div class="form-group">
+                <label class="col-md-3 control-label" for="firstName">First Name</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" placeholder="First Name" id="firstName" name="firstName">$firstName</input>
+                </div>
+            </div>
+            
+                        <div class="form-group">
+                <label class="col-md-3 control-label" for="lastName">Last Name</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" placeholder="Last Name" id="lastName" name="lastName">$lastName</input>
+                </div>
+            </div>
+            
     
             <!-- Button (Double) -->
             <div class="form-group">

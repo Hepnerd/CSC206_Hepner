@@ -2,8 +2,49 @@
 
 class layout
 {
+    public static function LoggedIn()
+    {
+        $user = $_SESSION['user'];
+        $x = '
+        <div class="blog-masthead" >
+        <div class="container" >
+            <nav class="blog-nav" >
+                <a href = "index.php" ><img src = "Assets/images/Logo.png" style = "height: 42px" ></a >
+                <a class="blog-nav-item" href = "index.php" >Home</a >
+                <a class="blog-nav-item" href = "createPost.php" >Create Post</a >
+                <a class="blog-nav-item" href = "getPosts.php" >View Posts</a >
+                <a class="blog-nav-item" href = "updateUser.php" >Edit User</a >
+                <div class="blog-nav-item3">Hello, ' . $user['firstName'] . ' ' . $user['lastName'] .
+                '</div><a class="blog-nav-item2" href="logoff.php">Logout</a>
+            </nav >
+        </div >
+    </div >';
+        return $x;
+    }
+
+    public static function LoggedOut()
+    {
+        $x = '
+        <div class="blog-masthead" >
+        <div class="container" >
+            <nav class="blog-nav" >
+                <a href = "index.php" ><img src = "Assets/images/Logo.png" style = "height: 42px" ></a >
+                <a class="blog-nav-item" href = "index.php" > Home</a >
+                <a class="blog-nav-item2" onclick = "document.getElementById(\'id01\').style.display=\'block\'" > Login</a >
+                <a class="blog-nav-item2" href = "createUser.php" > Register</a >
+            </nav >
+        </div >
+    </div >';
+        return $x;
+    }
+
     public static function pageTop($title)
     {
+        if ( isset($_SESSION['user'])) {
+            $menu = static::LoggedIn();
+        } else {
+            $menu = static::LoggedOut();
+        }
         echo <<<pageTop
         <!doctype html>
     <html>
@@ -29,18 +70,7 @@ class layout
 </head>
 <body>
 <header>
-    <div class="blog-masthead">
-        <div class="container">
-            <nav class="blog-nav">
-                <a href="index.php"><img src="Assets/images/Logo.png" style="height: 42px"></a>
-                <a class="blog-nav-item" href="index.php">Home</a>
-                <a class="blog-nav-item" href="createpost.php">Create Post</a>
-                <a class="blog-nav-item" href="getPosts.php">View Posts</a>
-                <a class="blog-nav-item" id="loginbutton" onclick="document.getElementById('id01').style.display='block'">Login</a>
-                <a class="blog-nav-item" id="loginbutton" href="createUser.php">Register</a>
-            </nav>
-        </div>
-    </div>
+$menu
 
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" 

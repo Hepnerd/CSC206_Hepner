@@ -5,13 +5,16 @@ require($_SERVER['DOCUMENT_ROOT'] . '/../includes/application_includes.php');
 include('../Templates/layout.php');
 include('../Templates/News.php');
 // Connect to the database
-$db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Initialize variables
 $requestType = $_SERVER['REQUEST_METHOD'];
 $email = $_GET['email'];
-
-$sql = "delete from users where email=" . $_GET['email'];
-$result = $db->query($sql);
-
-// Generate the page footer
-header('Location: index.php');
+if ($_SESSION['user'])
+{
+    $sql = "delete from users where email=" . $_GET['email'];
+    $result = $db->query($sql);
+    header('Location: index.php');
+}
+else
+{
+    header('Location: login.php');
+}

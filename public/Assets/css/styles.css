@@ -8254,6 +8254,25 @@ h6, .h6 {
     cursor: pointer;
 }
 
+.blog-nav-item2 {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 500;
+    color: #cdddeb;
+    cursor: pointer;
+    float: right;
+}
+
+.blog-nav-item3 {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 500;
+    color: #cdddeb;
+    float: right;
+}
+
 .blog-nav-item:hover,
 .blog-nav-item:focus {
     color: #fff;
@@ -8489,9 +8508,7 @@ span.psw {
     }
 }
 
-#loginbutton {
-    float: right;
-}
+
 
 .logincontainer {
     padding-right: 15px;
