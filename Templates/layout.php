@@ -13,7 +13,7 @@ class layout
                 <a class="blog-nav-item" href = "index.php" >Home</a >
                 <a class="blog-nav-item" href = "createPost.php" >Create Post</a >
                 <a class="blog-nav-item" href = "getPosts.php" >View Posts</a >
-                <a class="blog-nav-item" href = "updateUser.php" >Edit User</a >
+                <a class="blog-nav-item" href = "updateUser.php?id=$id"" >Edit User</a >
                 <div class="blog-nav-item3">Hello, ' . $user['firstName'] . ' ' . $user['lastName'] .
                 '</div><a class="blog-nav-item2" href="logoff.php">Logout</a>
             </nav >

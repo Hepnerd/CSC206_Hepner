@@ -18,7 +18,7 @@ Layout::pageTop('CSC206 Project');
 <?php
 if ($requestType == 'GET') {
 //
-    $sql = "select * from users where user = '" . $_GET['user'] . "'";
+    $sql = "select * from users where email = '" . $_GET['email'] . "'";
     $result = $db->query($sql);
     $row = $result->fetch();
     //News::story($row);
@@ -27,6 +27,7 @@ if ($requestType == 'GET') {
     $password = $row['password'];
     $firstName = $row['firstName'];
     $lastName = $row['lastName'];
+    $image = $data['image'];
 
     echo <<<postform
     <form id="createPostForm" action='updateUser.php' method="POST" class="form-horizontal">

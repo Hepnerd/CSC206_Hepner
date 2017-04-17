@@ -11,11 +11,10 @@ class news
     public static function LoggedIn()
     {
         $user = $_SESSION['user'];
-        $x = '
+        return $x = '
             <h4><a href="updatePost.php?id=$id">Edit</a> 
             <a href="deletePost.php?id=$id">Delete</a>
             <a href="viewPost.php?id=$id">View</a></h4>';
-        return $x;
     }
 
     public static function stories($data)
@@ -42,15 +41,18 @@ class news
         $content = $data['content'];
         $startDate = $data['startDate'];
         $endDate = $data['endDate'];
+        $image = '/Assets/images/' . $data['image'];
         $id = $data['id'];
         //        $author = $data['firstname'] . ' ' . $data['lastname'];
 
         echo <<<story
         <div class="top10">
             <h2 class="blogData">$title</h2>
+            <img src = "$image" width="200">
             <p class="blogData">$content</p>
             <h5>Start Date: $startDate</h5>
             <h5>End Date: $endDate</h5>  
+            
             $menu
         </div>        
 story;
