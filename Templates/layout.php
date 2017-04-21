@@ -13,7 +13,7 @@ class layout
                 <a class="blog-nav-item" href = "index.php" >Home</a >
                 <a class="blog-nav-item" href = "createPost.php" >Create Post</a >
                 <a class="blog-nav-item" href = "getPosts.php" >View Posts</a >
-                <a class="blog-nav-item" href = "updateUser.php?id=$id"" >Edit User</a >
+                <a class="blog-nav-item" href = "updateUser.php?id=' . $user['id'] . '" >Edit User</a >
                 <div class="blog-nav-item3">Hello, ' . $user['firstName'] . ' ' . $user['lastName'] .
                 '</div><a class="blog-nav-item2" href="logoff.php">Logout</a>
             </nav >
@@ -55,15 +55,12 @@ class layout
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>$title</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
         <link rel="stylesheet" href="Assets/css/styles.css">
@@ -101,7 +98,7 @@ class="close" title="Close Modal">&times;</span>
     <div class="container">
 
         <div class="blog-header">
-            <img class="headerImage" src="Assets/images/sundown.jpg" />
+            <img class="headerImage" src="Assets/images/desert.jpg" />
             <h1 class="blog-title">World Travels</h1>
             <p class="lead blog-description">Follow Nathanael as he posts his Facebook pictures.</p>
         </div>
@@ -126,7 +123,6 @@ pageTop;
     {
         echo <<<pageBottom
 <footer class="blog-footer">
-            <p>Nathanael built this.</p>
             <p>Hepnerd Inc.</p>
             <p>412-973-5495</p>
             <p>Registered to Nathanael (c)</p>

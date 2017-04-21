@@ -101,11 +101,14 @@ postform;
                     $id = $_POST['id'];
                     $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
                     $content = htmlspecialchars($_POST['content'], ENT_QUOTES);
+                    $startDate = htmlspecialchars($_POST['startDate'], ENT_QUOTES);
+                    $endDate = htmlspecialchars($_POST['endDate'], ENT_QUOTES);
+
                     //add in startdate and enddate
 
                     //echo '<pre>' . print_r($_POST) . '</pre>';
 
-                    $sql = "update posts set title = '$title', content = '$content' where id = $id;";
+                    $sql = "update posts set startDate = '$startDate', endDate = '$endDate', title = '$title', content = '$content' where id = $id;";
                     $result = $db->query($sql);
                     header('Location: index.php');
                 }

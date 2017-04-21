@@ -15,21 +15,20 @@ Layout::pageTop('CSC206 Project');
         <div class="col-md-8">
             <section class="content">
 
-<?php
-if ($requestType == 'GET') {
+                <?php
+                if ($requestType == 'GET') {
 //
-    $sql = "select * from users where email = '" . $_GET['email'] . "'";
-    $result = $db->query($sql);
-    $row = $result->fetch();
-    //News::story($row);
-    //showUpdateForm($row);
-    $email = $row['email'];
-    $password = $row['password'];
-    $firstName = $row['firstName'];
-    $lastName = $row['lastName'];
-    $image = $data['image'];
+                    $sql = "select * from users where id = '" . $_GET['id'] . "'";
+                    $result = $db->query($sql);
+                    $row = $result->fetch();
+                    //News::story($row);
+                    //showUpdateForm($row);
+                    $email = $row['email'];
+                    $password = $row['password'];
+                    $firstName = $row['firstName'];
+                    $lastName = $row['lastName'];
 
-    echo <<<postform
+                    echo <<<postform
     <form id="createPostForm" action='updateUser.php' method="POST" class="form-horizontal">
         <fieldset>
     
@@ -40,29 +39,21 @@ if ($requestType == 'GET') {
             <div class="form-group">
                 <label class="col-md-3 control-label" for="email">Email</label>
                 <div class="col-md-8">
-                    <input id="title" name="email" type="text" placeholder="Email Address" value="$email" class="form-control input-md" required="">                    
+                <label class="col-md-3 control-label" for="email">$email</label>
                 </div>
             </div>
-    
-            <!-- Textarea -->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="password">Password</label>
-                <div class="col-md-8">
-                    <input class="form-control" type="password" id="password" name="password">$password</input>
-                </div>
-            </div>
-            
+               
                         <div class="form-group">
                 <label class="col-md-3 control-label" for="firstName">First Name</label>
                 <div class="col-md-8">
-                    <input class="form-control" type="text" placeholder="First Name" id="firstName" name="firstName">$firstName</input>
+                    <input class="form-control" type="text" placeholder="First Name" id="firstName" name="firstName" value="$firstName">
                 </div>
             </div>
             
                         <div class="form-group">
                 <label class="col-md-3 control-label" for="lastName">Last Name</label>
                 <div class="col-md-8">
-                    <input class="form-control" type="text" placeholder="Last Name" id="lastName" name="lastName">$lastName</input>
+                    <input class="form-control" type="text" placeholder="Last Name" id="lastName" name="lastName" value="$lastName">
                 </div>
             </div>
             
@@ -84,15 +75,15 @@ postform;
                 } elseif ($requestType == 'POST') {
                     //Validate data
                     // Save data
-                    $email = htmlspecialchars($_POST['email'], ENT_QUOTES);
-                    $password = htmlspecialchars($_POST['password'], ENT_QUOTES);
+                    $firstName = htmlspecialchars($_POST['firstName'], ENT_QUOTES);
+                    $lastName = htmlspecialchars($_POST['lastName'], ENT_QUOTES);
                     //add in startdate and enddate
 
                     //echo '<pre>' . print_r($_POST) . '</pre>';
 
-                    $sql = "update users set email = '$email', password = '$password', firstName = '$firstName', lastName = '$lastName'";
+                    $sql = "update users set firstName = '$firstName', lastName = '$lastName'";
                     $result = $db->query($sql);
-                    header('Location: index.php');
+                    header('Location: logoff.php');
                 }
                 ?>
             </section>
