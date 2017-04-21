@@ -14,7 +14,7 @@ $posts = $db->query($sql);
 $sql = 'select id, name, description from pages';
 $res = $db->query($sql);
 // Generate the HTML for the top of the page
-Layout::pageTop('CSC206 Project');
+Layout::pageTop('World Travels');
 // Page content goes here
 // Create the table Header
 // echo News::buildTableHeader($posts);

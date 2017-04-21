@@ -8,7 +8,7 @@ include('../Templates/News.php');
 // Initialize variables
 $requestType = $_SERVER['REQUEST_METHOD'];
 // Generate the HTML for the top of the page
-Layout::pageTop('CSC206 Project');
+Layout::pageTop('World Travels');
 // Page content goes here
 if (! isset($_SESSION['user'])) {
     header('location: logIn.php');

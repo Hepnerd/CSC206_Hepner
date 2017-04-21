@@ -15,7 +15,7 @@ class layout
                 <a class="blog-nav-item" href = "getPosts.php" >View Posts</a >
                 <a class="blog-nav-item" href = "updateUser.php?id=' . $user['id'] . '" >Edit User</a >
                 <div class="blog-nav-item3">Hello, ' . $user['firstName'] . ' ' . $user['lastName'] .
-                '</div><a class="blog-nav-item2" href="logoff.php">Logout</a>
+            '</div><a class="blog-nav-item2" href="logoff.php">Logout</a>
             </nav >
         </div >
     </div >';
@@ -40,7 +40,7 @@ class layout
 
     public static function pageTop($title)
     {
-        if ( isset($_SESSION['user'])) {
+        if (isset($_SESSION['user'])) {
             $menu = static::LoggedIn();
         } else {
             $menu = static::LoggedOut();

@@ -13,7 +13,7 @@ $posts = $db->query($sql);
 $sql = 'select id, name, description from pages';
 $res = $db->query($sql);
 
-Layout::pageTop("layout.php");
+Layout::pageTop("World Travels");
 //Layout::pageSide();
 ?>
 <body>
