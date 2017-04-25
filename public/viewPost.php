@@ -1,6 +1,6 @@
 <?php
 // Load all application files and configurations
-require($_SERVER[ 'DOCUMENT_ROOT' ] . '/../includes/application_includes.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/../includes/application_includes.php');
 // Include the HTML layout class
 include('../Templates/layout.php');
 include('../Templates/News.php');
@@ -13,11 +13,11 @@ Layout::pageTop('CSC206 Project');
 // Page content goes here
 ?>
 <div class="container top25">
-    <div class="col-md-8">
+    <!-- <div class="col-md-8"> -->
         <section class="content">
 
             <?php
-            if ( $requestType == 'GET' ) {
+            if ($requestType == 'GET') {
 //
                 $sql = 'select * from posts where id = ' . $_GET['id'];
                 $result = $db->query($sql);
@@ -32,47 +32,29 @@ Layout::pageTop('CSC206 Project');
                 $image = $row['image'];
 
                 echo <<<postform
-                <form id="createPostForm" action='viewPost.php' method="POST" class="form-horizontal">
-        <fieldset>
+
+    <table align="center" class="table">
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        <tr>
+        <th>$title</th>
+        <th>$content</th>
+        <th>$startDate</th>
+        <th>$endDate</th>
+        <th><h4><a href="updatePost.php?id=$id">Edit</a></th>
+        </tr>
+        </table>
 
 
-            <!-- Form Name -->
-            <legend>View Post</legend>
-  <input type="hidden" name="id" value=$id>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="title">Title = $title</label>
-            </div>
-
-            <!-- Textarea -->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="content">Content = $content</label>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="startDate">Start Date = $startDate</label>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="endDate">End Date = $endDate</label>
-            </div>
-
-            <!-- File Button
-                <div class="form-group">
-                <label class="col-md-3 control-label" for="image">Image = $image</label>
-            </div>
-                -->
-
-        </fieldset>
-    </form>
-            <h4><a href="updatePost.php?id=$id">Edit</a>
+     
 postform;
 
 
-            } elseif ( $requestType == 'POST' ) {
+            } elseif ($requestType == 'POST') {
                 //Validate data
                 // Save data
                 $id = $_POST['id'];
@@ -86,10 +68,7 @@ postform;
             ?>
 
 
-
-
-
-<?php
-// Generate the page footer
-Layout::pageBottom();
-?>
+            <?php
+            // Generate the page footer
+            Layout::pageBottom();
+            ?>

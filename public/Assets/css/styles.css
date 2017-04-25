@@ -8529,3 +8529,9 @@ span.psw {
 /* overflow: hidden; */
  text-overflow: ellipsis;
 }
+
+.viewData {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

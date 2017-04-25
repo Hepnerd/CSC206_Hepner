@@ -32,7 +32,7 @@ class getPosts
         <tr>
         <td>$id</td>
         <td class="viewPosts">$title</td>
-        <td class="viewPosts">$content</td>
+        <td class="viewData">$content</td>
         <td>$startDate</td>
         <td>$endDate</td>
         <td><a href="viewPost.php?id=$id">View</a></h4></td>
