@@ -86,7 +86,7 @@ Layout::pageTop('CSC206 Project');
                 <label class="col-md-3 control-label" for="submit"></label>
                 <div class="col-md-8">
                     <button id="submit" name="submit" value="Submit" class="btn btn-success">Submit</button>
-                    <button id="cancel" name="cancel" value="Cancel" class="btn btn-info">Cancel</button>
+                    <a id="cancel" name="cancel" href="index.php" value="Cancel" class="btn btn-info">Cancel</a>
                 </div>
             </div>
 
